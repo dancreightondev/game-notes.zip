@@ -1,25 +1,20 @@
 import { FC } from "react";
 import { twClassMerge } from "@utils/tailwind";
 
-interface GamesListItemProps extends React.HTMLAttributes<HTMLButtonElement> {
+interface SidebarAppLogoProps extends React.HTMLAttributes<HTMLButtonElement> {
     // Custom props go here
-    game: string;
     expand?: boolean;
 }
 
-export const GamesListItem: FC<GamesListItemProps> = ({
+export const SidebarAppLogo: FC<SidebarAppLogoProps> = ({
     className,
-    game,
     expand,
     ...props
 }) => {
     return (
         <button
-            id="games-list-item"
-            className={twClassMerge(
-                className,
-                "flex w-full h-14 my-0.5 rounded-lg transition-colors duration-75 hover:bg-dark"
-            )}
+            id="sidebar-app-logo"
+            className={twClassMerge(className, "flex mx-1 h-14 rounded-lg")}
             {...props}
         >
             <img
@@ -28,7 +23,7 @@ export const GamesListItem: FC<GamesListItemProps> = ({
             ></img>
             <p
                 className={twClassMerge(
-                    "text-left line-clamp-2 self-center ml-3 transition-opacity", // Always on the element
+                    "text-left font-semibold line-clamp-2 self-center ml-3 transition-opacity", // Always on the element
                     `${
                         expand // Conditional styling
                             ? "opacity-100 delay-100"
@@ -36,7 +31,7 @@ export const GamesListItem: FC<GamesListItemProps> = ({
                     }`
                 )}
             >
-                {game}
+                game-notes.zip
             </p>
         </button>
     );

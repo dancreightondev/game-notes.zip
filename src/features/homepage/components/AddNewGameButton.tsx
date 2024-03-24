@@ -1,24 +1,23 @@
 import { FC } from "react";
 import { twClassMerge } from "@utils/tailwind";
 
-interface GamesListItemProps extends React.HTMLAttributes<HTMLButtonElement> {
+interface AddNewGameButtonProps
+    extends React.HTMLAttributes<HTMLButtonElement> {
     // Custom props go here
-    game: string;
     expand?: boolean;
 }
 
-export const GamesListItem: FC<GamesListItemProps> = ({
+export const AddNewGameButton: FC<AddNewGameButtonProps> = ({
     className,
-    game,
     expand,
     ...props
 }) => {
     return (
         <button
-            id="games-list-item"
+            id="add-new-game-button"
             className={twClassMerge(
                 className,
-                "flex w-full h-14 my-0.5 rounded-lg transition-colors duration-75 hover:bg-dark"
+                "flex h-14 mx-1 rounded-lg transition-colors duration-75 hover:bg-dark"
             )}
             {...props}
         >
@@ -28,7 +27,7 @@ export const GamesListItem: FC<GamesListItemProps> = ({
             ></img>
             <p
                 className={twClassMerge(
-                    "text-left line-clamp-2 self-center ml-3 transition-opacity", // Always on the element
+                    "text-left line-clamp-2 self-center ml-3 mr-1 transition-opacity", // Always on the element
                     `${
                         expand // Conditional styling
                             ? "opacity-100 delay-100"
@@ -36,7 +35,7 @@ export const GamesListItem: FC<GamesListItemProps> = ({
                     }`
                 )}
             >
-                {game}
+                Add game
             </p>
         </button>
     );

@@ -5,3 +5,14 @@
 body {
     background-color: #282a36;
 }
+
+/* For Webkit-based browsers (e.g. Chrome, Safari and Opera), using this class will hide the scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* For IE, Edge and Firefox, using this class will hide the scrollbar */
+.scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
