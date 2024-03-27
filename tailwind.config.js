@@ -21,7 +21,14 @@ export default {
         cyan: "#8BE9FD",
       },
       transitionProperty: {
-        "width": "width",
+        "size": "width, height",
+      },
+      gridTemplateColumns: {
+        "14": "repeat(14, minmax(0, 1fr))",
+        "16": "repeat(16, minmax(0, 1fr))",
+      },
+      width: {
+        "inherit": "inherit",
       },
     },
   },

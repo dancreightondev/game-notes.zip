@@ -1,5 +1,6 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { twClassMerge } from "@utils/tailwind";
+import { PlusIcon } from "@heroicons/react/24/solid";
 
 interface AddNewGameButtonProps
     extends React.HTMLAttributes<HTMLButtonElement> {
@@ -12,22 +13,52 @@ export const AddNewGameButton: FC<AddNewGameButtonProps> = ({
     expand,
     ...props
 }) => {
+    const [isHighlighted, setIsHighlighted] = useState(false);
+    const [isMouseDown, setIsMouseDown] = useState(false);
+
     return (
         <button
             id="add-new-game-button"
             className={twClassMerge(
                 className,
-                "flex h-14 mx-1 rounded-lg transition-colors duration-75 hover:bg-dark"
+                "flex h-14 mx-1 rounded-lg transition-all duration-75",
+                `${isHighlighted ? "bg-dark" : ""}`,
+                `${isMouseDown ? "bg-opacity-25" : ""}`
             )}
+            onMouseEnter={() => setIsHighlighted(true)}
+            onMouseLeave={() => {
+                setIsHighlighted(false);
+                setIsMouseDown(false);
+            }}
+            onMouseDown={() => setIsMouseDown(true)}
+            onMouseUp={() => setIsMouseDown(false)}
             {...props}
         >
-            <img
-                src="https://placehold.co/48"
-                className="rounded ml-1 my-auto"
-            ></img>
+            <div
+                className={twClassMerge(
+                    "w-12 h-12 ml-1 my-auto rounded bg-dark",
+                    `${isHighlighted ? "shadow-inner shadow-background" : ""}`
+                )}
+            >
+                <PlusIcon
+                    className={twClassMerge(
+                        "w-7 h-7 m-2.5 transition-colors",
+                        `${
+                            expand // Conditional styling when sidebar is expanded
+                                ? "text-foreground"
+                                : "text-background"
+                        }`,
+                        `${
+                            isHighlighted // Conditional styling when button is highlighted
+                                ? "text-green"
+                                : ""
+                        }`
+                    )}
+                />
+            </div>
             <p
                 className={twClassMerge(
-                    "text-left line-clamp-2 self-center ml-3 mr-1 transition-opacity", // Always on the element
+                    "absolute text-left line-clamp-2 self-center ml-16 mr-1 transition-opacity", // Always on the element
                     `${
                         expand // Conditional styling
                             ? "opacity-100 delay-100"

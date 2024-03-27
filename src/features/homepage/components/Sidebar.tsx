@@ -19,22 +19,27 @@ export const Sidebar: FC<SidebarProps> = ({ className, ...props }) => {
             id="sidebar"
             className={twClassMerge(
                 className,
-                "bg-background text-foreground shadow-2xl shadow-stone-950 rounded-lg transition-width fixed top-4 bottom-4 mx-4 grid grid-cols-1",
-                `${isExpanded ? "w-64" : "w-16"}`
+                "shadow-2xl shadow-stone-950 bg-background rounded-lg transition-size",
+                `${isExpanded ? "w-60" : "w-16"}`
             )}
             onMouseEnter={toggleIsExpanded}
             onMouseLeave={toggleIsExpanded}
             {...props}
         >
-            <SidebarAppLogo
-                expand={isExpanded}
-                className="self-start mt-1 mb-5"
-            />
-            <GamesList expand={isExpanded} className="self-center max-h-full" />
-            <AddNewGameButton
-                expand={isExpanded}
-                className="self-end mb-1 mt-5"
-            />
+            <div id="sidebar-content" className="grid grid-cols-1 h-full">
+                <SidebarAppLogo
+                    expand={isExpanded}
+                    className="self-start mt-1 mb-24"
+                />
+                <GamesList
+                    expand={isExpanded}
+                    className="self-center max-h-full"
+                />
+                <AddNewGameButton
+                    expand={isExpanded}
+                    className="self-end mb-1 mt-24"
+                />
+            </div>
         </div>
     );
 };

@@ -21,13 +21,13 @@ export const GamesList: FC<GamesListProps> = ({
             )}
             {...props}
         >
-            {/* List of dummy games */}
+            {/* List of dummy games. Replace game name with ID and display data through an API call? */}
             <GamesListItem expand={expand} game="RuneScape" />
             <GamesListItem expand={expand} game="Old School RuneScape" />
             <GamesListItem expand={expand} game="Warframe" />
             <GamesListItem
                 expand={expand}
-                game="Animal Crossing: New Horizons" // TODO: Replace name with ID and display data through an API call?
+                game="Animal Crossing: New Horizons"
             />
             <GamesListItem expand={expand} game="Football Manager 2024" />
             <GamesListItem expand={expand} game="Crusader Kings III" />
