@@ -19,7 +19,7 @@ export const Sidebar: FC<SidebarProps> = ({ className, ...props }) => {
             id="sidebar"
             className={twClassMerge(
                 className,
-                "shadow-2xl shadow-stone-950 bg-background rounded-lg transition-size",
+                "shadow-lg shadow-zinc-900 bg-background rounded-lg transition-size",
                 `${isExpanded ? "w-60" : "w-16"}`
             )}
             onMouseEnter={toggleIsExpanded}
