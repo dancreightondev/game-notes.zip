@@ -1,5 +1,7 @@
 import { FC, useState } from "react";
 import { twClassMerge } from "@utils/tailwind";
+import { UserProfileMenuItem } from "./UserProfileMenuItem";
+import { UserProfileMenuFooter } from "./UserProfileMenuFooter";
 
 interface UserProfileButtonProps
 	extends React.HTMLAttributes<HTMLButtonElement> {
@@ -10,28 +12,63 @@ export const UserProfileButton: FC<UserProfileButtonProps> = ({
 	className,
 	...props
 }) => {
-	const [isExpanded, setIsExpanded] = useState(false);
-	const toggleIsExpanded = () => setIsExpanded(!isExpanded);
+	const [isBig, setIsBig] = useState(false);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	return (
-		<button
+		<div
 			id="user-profile-button"
 			className={twClassMerge(
 				className,
-				"shadow-lg shadow-stone-950 bg-background rounded-lg hover:bg-dark transition-size",
-				`${isExpanded ? "w-16 h-16" : "w-14 h-14"}`
+				"flex flex-col justify-self-end shadow-lg shadow-stone-950 bg-background rounded-lg transition-size",
+				`${isBig ? "w-16 h-16" : "w-14 h-14"}`,
+				`${isMenuOpen ? "w-60 h-max" : ""}`
 			)}
-			onMouseEnter={toggleIsExpanded}
-			onMouseLeave={toggleIsExpanded}
-			{...props}
 		>
-			<img
-				src="https://placehold.co/56"
+			<button
 				className={twClassMerge(
-					"rounded mx-auto my-auto transition-size",
-					`${isExpanded ? "w-14 h-14" : "w-12 h-12"}`
+					"hover:bg-dark transition-size rounded-lg"
 				)}
-			></img>
-		</button>
+				onMouseEnter={() => setIsBig(true)}
+				onMouseLeave={() => {
+					if (!isMenuOpen) {
+						setIsBig(false);
+					}
+				}}
+				onClick={() => {
+					setIsMenuOpen(!isMenuOpen);
+					setIsBig(true);
+				}}
+				{...props}
+			>
+				<img
+					src="https://placehold.co/52"
+					id="user-profile-picture"
+					className={twClassMerge(
+						"rounded my-1 mr-1 ml-auto transition-size",
+						`${isBig ? "w-14 h-14" : "w-12 h-12"}`
+					)}
+				></img>
+			</button>
+			<div
+				id="user-profile-menu"
+				className={twClassMerge(
+					"",
+					`${isMenuOpen ? "visible" : "hidden"}`
+				)}
+			>
+				<div className={twClassMerge("grid grid-cols-1")}>
+					<UserProfileMenuItem
+						text="Edit profile"
+						className="text-right"
+					/>
+					<UserProfileMenuItem
+						text="Log out"
+						className="text-right"
+					/>
+				</div>
+				<UserProfileMenuFooter />
+			</div>
+		</div>
 	);
 };

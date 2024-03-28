@@ -25,7 +25,10 @@ export const NotesOverlay: FC<NotesOverlayProps> = ({
 		>
 			<Sidebar className="self-center h-[97vh] ml-[2vh] pointer-events-auto" />
 			<div className="col-span-6 invisible"></div>
-			<div className="grid grid-cols-1 self-center h-[97vh] mr-[2vh] pointer-events-auto">
+			<div
+				id="far-buttons"
+				className="grid grid-cols-1 self-center h-[97vh] mr-[2vh] pointer-events-auto"
+			>
 				<UserProfileButton className="justify-self-end" />
 				<AddNewNoteButton className="place-self-end" />
 			</div>
