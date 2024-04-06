@@ -1,3 +1,4 @@
+import { NotesContainer } from "../components/NotesContainer";
 import { NotesOverlay } from "../components/NotesOverlay";
 
 export const Notes = () => {
@@ -6,48 +7,7 @@ export const Notes = () => {
             <NotesOverlay />
             <div id="notes-layout" className="grid grid-cols-8">
                 <div className="invisible" />
-                <div id="notes-content" className="col-span-6 mx-3">
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                    <div>Content</div>
-                </div>
+                <NotesContainer />
                 <div className="invisible" />
             </div>
         </div>
