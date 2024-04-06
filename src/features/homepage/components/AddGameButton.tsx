@@ -2,13 +2,12 @@ import { FC, useState } from "react";
 import { twClassMerge } from "@utils/tailwind";
 import { PlusIcon } from "@heroicons/react/24/solid";
 
-interface AddNewGameButtonProps
-    extends React.HTMLAttributes<HTMLButtonElement> {
+interface AddGameButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
     // Custom props go here
     expand?: boolean;
 }
 
-export const AddNewGameButton: FC<AddNewGameButtonProps> = ({
+export const AddGameButton: FC<AddGameButtonProps> = ({
     className,
     expand,
     ...props
@@ -18,7 +17,7 @@ export const AddNewGameButton: FC<AddNewGameButtonProps> = ({
 
     return (
         <button
-            id="add-new-game-button"
+            id="add-game"
             className={twClassMerge(
                 className,
                 "flex h-14 mx-1 rounded-lg transition-all duration-75",

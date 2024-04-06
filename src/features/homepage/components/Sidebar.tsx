@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FC } from "react";
 import { twClassMerge } from "@utils/tailwind";
 import { SidebarAppLogo } from "./SidebarAppLogo";
-import { AddNewGameButton } from "./AddNewGameButton";
+import { AddGameButton } from "./AddGameButton";
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
     // Custom props go here
@@ -35,7 +35,7 @@ export const Sidebar: FC<SidebarProps> = ({ className, ...props }) => {
                     expand={isExpanded}
                     className="self-center max-h-full"
                 />
-                <AddNewGameButton
+                <AddGameButton
                     expand={isExpanded}
                     className="self-end mb-1 mt-24"
                 />

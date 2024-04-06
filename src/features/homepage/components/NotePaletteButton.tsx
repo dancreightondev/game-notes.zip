@@ -1,22 +1,22 @@
 import { FC } from "react";
 import { twClassMerge } from "@utils/tailwind";
 
-interface AddNewNoteButtonProps
+interface NotePaletteButtonProps
     extends React.HTMLAttributes<HTMLButtonElement> {
     // Custom props go here
 }
 
-export const AddNewNoteButton: FC<AddNewNoteButtonProps> = ({
+export const NotePaletteButton: FC<NotePaletteButtonProps> = ({
     className,
     ...props
 }) => {
     return (
         <button
-            id="add-new-note-button"
+            id="note-palette-button"
             className={twClassMerge(className, "")}
             {...props}
         >
-            New note button
+            Note palette
         </button>
     );
 };
