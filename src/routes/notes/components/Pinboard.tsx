@@ -10,7 +10,7 @@ interface PinboardProps extends React.HTMLAttributes<HTMLDivElement> {
 export const Pinboard = forwardRef<HTMLDivElement, PinboardProps>(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ({ blocks: initialBlocks, className, ...props }, _ref) => {
-    const [blocks, setBlocks] = useState(initialBlocks || [])
+    const [blocks] = useState(initialBlocks || [])
 
     return (
       <div id="pinboard" className={twClassMerge(className, '')} {...props}>
