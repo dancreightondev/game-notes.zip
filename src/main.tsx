@@ -1,10 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter, Routes, Route } from 'react-router'
 import './index.css'
+import LandingRoute from '~/routes/landing/LandingRoute'
+import NotesRoute from '~/routes/notes/NotesRoute'
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+createRoot(document.getElementById('root') as HTMLElement).render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<LandingRoute />} />
+      <Route path="/notes" element={<NotesRoute />} />
+    </Routes>
+  </BrowserRouter>
 )
