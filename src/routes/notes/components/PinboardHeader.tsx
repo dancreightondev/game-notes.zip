@@ -13,7 +13,7 @@ export const PinboardHeader = forwardRef<HTMLDivElement, PinboardHeaderProps>(
     return (
       <div
         id="pinboard-header"
-        className={twClassMerge(className, 'w-full flex flex-col gap-3')}
+        className={twClassMerge(className, 'p-5 w-full mx-auto bg-background')}
         {...props}
       >
         <div

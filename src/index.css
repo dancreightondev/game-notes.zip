@@ -4,7 +4,7 @@
 
 @layer base {
   #root {
-    @apply h-full;
+    @apply min-h-screen;
     @apply bg-background;
     @apply text-body;
     @apply font-sans;
@@ -12,7 +12,7 @@
 
   html,
   body {
-    @apply h-full;
+    @apply min-h-screen;
     @apply select-none;
   }
 

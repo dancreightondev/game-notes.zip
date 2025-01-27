@@ -1,6 +1,7 @@
 import { FC, useRef } from 'react'
 import { twClassMerge } from '~/utils/tailwind'
 import { Pinboard } from './components/Pinboard'
+import { PinboardHeader } from './components/PinboardHeader'
 import { BlockPalette } from './components/BlockPalette'
 import { Block } from './models/data'
 import {
@@ -37,7 +38,7 @@ const NotesRoute: FC<NotesRouteProps> = ({
     new Block(
       'Goal',
       <HiTrophy />,
-      <p>This is a Goal block! Set your achievement to work towards.</p>
+      <p>This is a Goal block! Set an achievement to work towards.</p>
     ),
     new Block(
       'Calendar',
@@ -56,15 +57,21 @@ const NotesRoute: FC<NotesRouteProps> = ({
   return (
     <div
       id="notes-route"
-      className={twClassMerge(className, 'py-10 content-between h-full max-w-[75%] mx-auto')}
+      className={twClassMerge(className, 'py-5 content-between max-w-[75%] mx-auto')}
       ref={dragAreaRef}
       {...props}
     >
-      <Pinboard blocks={pinboardBlocks} className="flex-grow" />
-      <div className="h-24" /> {/* Add bottom margin equal to the height of the block palette */}
+      <div id="pinboard-wrapper" className="flex flex-col min-h-full">
+        <PinboardHeader
+          title="Pinboard"
+          timestamp={+new Date()}
+          className="fixed top-0 mb-6 z-50 left-1/2 transform -translate-x-1/2"
+        />
+        <Pinboard blocks={pinboardBlocks} className="flex-grow overflow-auto" />
+      </div>
       <BlockPalette
         blocks={paletteBlocks || defaultPaletteBlocks}
-        className="fixed bottom-0 my-10 z-50 left-1/2 transform -translate-x-1/2"
+        className="fixed bottom-0 my-6 z-50 left-1/2 transform -translate-x-1/2"
       />
     </div>
   )
