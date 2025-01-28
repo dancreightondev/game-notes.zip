@@ -13,7 +13,10 @@ export const PinboardHeader = forwardRef<HTMLDivElement, PinboardHeaderProps>(
     return (
       <div
         id="pinboard-header"
-        className={twClassMerge(className, 'p-5 w-full mx-auto bg-background')}
+        className={twClassMerge(
+          className,
+          'p-5 w-full mx-auto bg-gradient-to-b from-background from-80% via-background to-transparent'
+        )}
         {...props}
       >
         <div
@@ -27,7 +30,7 @@ export const PinboardHeader = forwardRef<HTMLDivElement, PinboardHeaderProps>(
         </div>
         <span
           id="pinboard-timestamp"
-          className="flex flex-col text-sm font-medium w-full text-center text-body-dark"
+          className="flex flex-col text-sm font-medium w-full text-center text-body-dark pb-4"
         >
           last updated on {/* https://stackoverflow.com/a/71647447 */}
           <span>{new Date(timestamp).toLocaleString()}</span>
